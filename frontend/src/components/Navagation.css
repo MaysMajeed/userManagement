@@ -1,0 +1,40 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.nav{
+    height: 30%;
+    position: sticky;
+    top:0;
+    color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 999;
+    background-color: #fff;
+    padding: 1rem;
+}
+.link{
+    text-decoration-line: none;
+    color: #000;
+    -moz-text-decoration-line: none;
+    list-style-type: none;
+    margin-right: 2rem;
+   
+}
+
+.logo{
+    font-size: 20px;
+}
+
+
+
+.mainNav{
+    display: flex;
+ 
+}
+.mainNav>Li{
+    list-style-type: none;
+    font-size: 18px;
+}

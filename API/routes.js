@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 
 router.get("/users", async (req, res) => {
   const allUsers = await Users.find();
-  res.send(allUsers);
+  res.status(200).json(allUsers);
 });
 
 router.get("/users/:id", async (req, res) => {
@@ -19,14 +19,14 @@ router.post("/register", async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
     const myUser = new Users({
-      userName: req.body.userName,
+      fullName: req.body.fullName,
       email: req.body.email,
       password: hashedPassword,
-      isAdmin: req.body.isAdmin,
+      aboutYou: req.body.aboutYou,
     });
 
     const user = await myUser.save();
-    res.status(200).send(`Welcome on board ${user.userName}`);
+    res.status(200).json("ok");
   } catch (err) {
     res.status(500).json(err);
   }
@@ -44,12 +44,11 @@ router.post("/login", async (req, res) => {
         const token = jwt.sign(
           {
             userID: foundedUser._id,
-            userName: foundedUser.userName,
-            userIsAdmin: foundedUser.isAdmin,
+            userName: foundedUser.fullName,
           },
           process.env.SECRET_KEY
         );
-        res.status(200).send(token);
+        res.status(200).json({ token: token });
       } else {
         res.status(401).send("Wrong credentials");
       }
@@ -78,7 +77,7 @@ function verifyToken(req, res, next) {
 }
 
 router.put("/users/:id", verifyToken, async (req, res) => {
-  if (req.user.userID === req.params.id || req.user.isAdmin) {
+  if (req.user.userID === req.params.id) {
     if (req.body.password) {
       const salt = await bcrypt.genSalt(10);
       req.body.password = await bcrypt.hash(req.body.password, salt);
@@ -98,7 +97,7 @@ router.put("/users/:id", verifyToken, async (req, res) => {
 
 router.delete("/users/:id", verifyToken, async (req, res) => {
   try {
-    if (req.user.userID === req.params.id || req.user.isAdmin) {
+    if (req.user.userID === req.params.id) {
       Users.findByIdAndDelete(req.params.id);
       res.status(200).json("User has been deleted successfully!");
       console.log("User is deleted successfully!");

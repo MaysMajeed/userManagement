@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.landingPage{
+background-image: linear-gradient(rgb(98, 132, 212),rgb(178, 104, 202));
+background-repeat: no-repeat;
+height: 100vh;
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+
+.textPart{
+width: 40%;
+}
+.textPart>h4{
+    margin-top: 3rem;
+}
+
+.imgPart{
+     background-image: url("../Assets/l.png");
+     width: 40vw;
+     height: 40vh;
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: contain;
+     clip-path: polygon(20% 0%, 92% 0, 100% 32%, 100% 80%, 80% 100%, 20% 100%, 27% 68%, 0% 20%);
+}
+.btn{
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border: 1px solid white;
+    padding: 0.5rem 1.5rem;
+    margin: 1rem;
+    margin-top: 4rem;
+}
+.btn:hover{
+    cursor: pointer;
+    background-color: rgba(255, 255, 255,0.7);
+    border: rgba(255, 255, 255,0.7);
+}

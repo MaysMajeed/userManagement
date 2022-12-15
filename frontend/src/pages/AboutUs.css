@@ -1,0 +1,54 @@
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    height: 100vh;
+}
+
+.aboutUs{
+    background-color: rgb(234, 234, 234);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 90vh;
+}
+.textSide{
+    width: 30%;
+}
+.Hline{
+    width: clamp(3rem, 5vw, 5.5rem);
+    margin: 1rem;
+    margin-bottom: 2rem;
+    justify-self: left;
+}
+
+.imgSide{
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    background-image:url("../Assets/office.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: clamp(35vw, 40vw, 60vw);
+    height: clamp(35vw, 40vw, 60vw);
+    margin-top: 2rem;
+}
+.aboutUsTitle{
+    font-size: clamp(0.7rem, 2rem, 3rem);
+}
+
+@media only screen and (max-width: 600px) {
+    .aboutUs {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .aboutUsTitle{
+        font-size: 1rem;
+        padding-top: 1rem;
+    }
+    .imgSide{
+        width: 10rem;
+        height: 10rem;
+    }
+  }
+

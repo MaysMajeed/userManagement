@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.loginContainer{
+    background-color: rgb(98, 132, 212);
+min-height:100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+.loginForm{
+    background-color: #fff;
+    height:minmax(70vh,90vh);
+    width: minmax(30vw,40vw);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.title{
+    padding: 1rem clamp(1rem, 2vw, 1.5rem);
+    color: rgba(0, 0, 0,0.7);
+}
+.loginline{
+    width: 3rem;
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+}
+.note{
+    margin: clamp(1rem, 2vw, 1.5rem);
+}
